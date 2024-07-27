@@ -12,7 +12,6 @@ import java.util.List;
 
 public interface ListingRepository extends JpaRepository<Listing, Long> {
     //List<Listing> findByLocalDate(LocalDate localDate);
-   // List<Listing> findByListingType(Status ListingType);
+    //List<Listing> findByListingType(Status listingtype);
 
-    //List<Listing> findByCarAttribute(@Param("value") String value);
 }

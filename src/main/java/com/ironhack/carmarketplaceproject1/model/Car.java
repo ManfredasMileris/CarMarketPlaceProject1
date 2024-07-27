@@ -18,16 +18,16 @@ public class Car {
     private String model;
     private int year;
     private double price;
-    private CarStatus condition;
+    private CarStatus carstatus;
     @ManyToOne
     @JoinColumn(name = "listing_id")
     private Listing listing;
 
-    public Car(String model,String brand, int year, double price, CarStatus condition) {
+       public Car(String model,String brand, int year, double price, CarStatus carstatus) {
         this.model = model;
-        this.brand = brand;
+       this.brand = brand;
         this.year = year;
         this.price = price;
-        this.condition = condition;
-    }
+        this.carstatus = carstatus;
+}
 }

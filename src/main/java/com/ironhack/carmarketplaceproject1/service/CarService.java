@@ -18,36 +18,36 @@ import java.util.Optional;
 public class CarService {
     @Autowired
     private CarRepository carRepository;
-    public List<Car>getAllCars(){
+    public List<Car>getAllCars() {
         log.info("getAllCars");
         return carRepository.findAll();
     }
-    public Optional<Car> getCarById(Long id) {
-        log.info("getCarById");
-        return carRepository.findById(id);
-    }
-    public List<Car>getCarByPrice(double price) {
-        log.info("getCarsByPrice");
-        return carRepository.findByPrice(price);
-    }
-    public List<Car>getCarByYear(int year) {
-        return carRepository.findByYear(year);
-    }
-    public List<Car>getCarByBrand(String brand) {
-        log.info("getCarByBrand");
-        return carRepository.findByBrand(brand);
-    }
-    public List<Car>getCarByModel(String model) {
-        log.info("getCarByModel");
-        return carRepository.findByModel(model);
-    }
-    public List<Car>getCarByStatus(CarStatus status) {
-        log.info("getCarByStatus");
-        return carRepository.findByCondition(status);
-    }
-    @Transactional
-    public Car addCar(Car car){
-        log.info("Create car:{}",car);
-        return carRepository.save(car);
-    }
+//    public Optional<Car> getCarById(Long id) {
+//        log.info("getCarById");
+//        return carRepository.findById(id);
+//    }
+//    public List<Car>getCarByPrice(double price) {
+//        log.info("getCarsByPrice");
+//        return carRepository.findByPrice(price);
+//    }
+//    public List<Car>getCarByYear(int year) {
+//        return carRepository.findByYear(year);
+//    }
+//    public List<Car>getCarByBrand(String brand) {
+//        log.info("getCarByBrand");
+//        return carRepository.findByBrand(brand);
+//    }
+//    public List<Car>getCarByModel(String model) {
+//        log.info("getCarByModel");
+//        return carRepository.findByModel(model);
+//    }
+//    public List<Car>getCarByStatus(CarStatus status) {
+//        log.info("getCarByStatus");
+//        return carRepository.findByCondition(status);
+//    }
+//    @Transactional
+//    public Car addCar(Car car){
+//        log.info("Create car:{}",car);
+//        return carRepository.save(car);
+//    }
     }

@@ -73,11 +73,12 @@ public class SecurityConfig {
                 .requestMatchers("/api/login/**").permitAll()// public endpoint, we could add more if we wanted to
                 .requestMatchers("api/greet").permitAll()
                 // could be deleted .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+                .requestMatchers(POST,"/api/cars/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN","ROLE_BUYER","ROLE_SELLER")
                 .requestMatchers(GET, "/api/users").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN","ROLE_BUYER","ROLE_SELLER")
                 .requestMatchers(POST, "/api/users").hasAnyAuthority("ROLE_ADMIN","ROLE_BUYER")
                 .requestMatchers(POST, "/api/roles").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers(POST, "/api/roles/add-to-user").hasAnyAuthority("ROLE_ADMIN")
-                .anyRequest().authenticated()); // any other endpoints require authentication
+                .anyRequest().permitAll()); // any other endpoints require authentication
 
         // add the custom authentication filter to the http security object
         http.addFilter(customAuthenticationFilter);

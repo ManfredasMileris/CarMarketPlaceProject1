@@ -30,7 +30,8 @@ public class DataLoader implements CommandLineRunner {
         userService.saveUser(new User("Chris Anderson", "chris", "1234"));
 
         roleService.addRoleToUser("john", "ROLE_USER");
-        //roleService.addRoleToUser("manfre","ROLE_SELLER");
+        roleService.addRoleToUser("john", "ROLE_SELLER");
+        //roleService.addRoleToUser("mileris","ROLE_SELLER");
         roleService.addRoleToUser("james", "ROLE_ADMIN");
         roleService.addRoleToUser("jane", "ROLE_USER");
         roleService.addRoleToUser("chris", "ROLE_ADMIN");
