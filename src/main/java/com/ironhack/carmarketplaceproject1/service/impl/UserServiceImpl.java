@@ -44,7 +44,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         // Check if user exists
         if (user == null) {
             log.error("User not found in the database");
-            throw new UsernameNotFoundException("User not found in the database");
+            return null;
+
+            //throw new UsernameNotFoundException("User not found in the database");
         } else {
             log.info("User found in the database: {}", username);
             // Create a collection of SimpleGrantedAuthority objects from the user's roles
@@ -65,10 +67,14 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      */
     @Override
     public User saveUser(User user) {
-        log.info("Saving new user {} to the database", user.getName());
-        // Encode the user's password for security before saving
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        if(userRepository.findByUsername(user.getUsername()) == null) {
+            log.info("Saving new user {} to the database", user.getName());
+            // Encode the user's password for security before saving
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            return userRepository.save(user);
+        }
+        return user;
+
     }
 
     /**

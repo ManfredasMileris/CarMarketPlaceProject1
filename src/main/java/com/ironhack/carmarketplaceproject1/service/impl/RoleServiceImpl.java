@@ -28,9 +28,14 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public Role save(Role role) {
-        log.info("Saving new role {} to the database", role.getName());
-        return roleRepository.save(role);
+        if (roleRepository.findByName(role.getName()) == null) {
+            log.info("Saving new role {} to the database", role.getName());
+            return roleRepository.save(role);
+
+        }
+        return roleRepository.findByName(role.getName());
     }
+
 
     /**
      * Adds a role to the user with the given username
@@ -40,16 +45,19 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public void addRoleToUser(String username, String roleName) {
+
         log.info("Adding role {} to user {}", roleName, username);
 
         // Retrieve the user and role objects from the repository
         User user = userRepository.findByUsername(username);
         Role role = roleRepository.findByName(roleName);
+        if(!user.getRoles().contains(role)) {
 
-        // Add the role to the user's role collection
-        user.getRoles().add(role);
+            // Add the role to the user's role collection
+            user.getRoles().add(role);
 
-        // Save the user to persist the changes
-        userRepository.save(user);
+            // Save the user to persist the changes
+            userRepository.save(user);
+        }
     }
 }

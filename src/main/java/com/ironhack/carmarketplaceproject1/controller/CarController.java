@@ -2,6 +2,7 @@ package com.ironhack.carmarketplaceproject1.controller;
 
 import com.ironhack.carmarketplaceproject1.model.Car;
 import com.ironhack.carmarketplaceproject1.repository.CarRepository;
+import com.ironhack.carmarketplaceproject1.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CarController {
     private final CarRepository carRepository;
+    private final CarService carService;
+
     @GetMapping
     public List<Car> getAllCars() {
         return carRepository.findAll();
@@ -20,10 +23,22 @@ public class CarController {
 //    public Car getCarById(@PathVariable("id") long id) {
 //        return carRepository.findById(id).orElse(null);
 //    }
-//    @GetMapping("/carsByPrice")
-//    public List<Car> getCarsByPrice(@RequestParam int minPrice, @RequestParam int maxPrice) {
-//        return carRepository.findByPriceBetween(minPrice, maxPrice);
-//    }
+    //@GetMapping("/price")
+    //public List<Car> findCarsByPrice(@RequestParam("minPrice") double minPrice, @RequestParam("maxPrice") double maxPrice) {
+   //     return carRepository.findByPriceBetween(minPrice, maxPrice);
+   // }
+    @GetMapping("/model/{model}")
+    public List<Car> findByModel(@PathVariable("model") String model) {
+        return carRepository.findByModel(model);
+    }
+    @GetMapping("/brand/{brand}")
+    public List<Car> findByBrand(@PathVariable("brand")String brand) {
+        return carRepository.findByBrand(brand);
+    }
+    @GetMapping("/year{year}")
+    public List<Car> findByYear(@PathVariable("year")int year) {
+        return carRepository.findByYear(year);
+    }
     @PostMapping("/PostCar/{id}")
     public Car addCar(@PathVariable("id") long user, @RequestBody Car car) {
         return carRepository.save(car);
@@ -36,5 +51,6 @@ public class CarController {
     public void deleteCar(@PathVariable("id") long id) {
         carRepository.deleteById(id);
     }
+
 
 }
