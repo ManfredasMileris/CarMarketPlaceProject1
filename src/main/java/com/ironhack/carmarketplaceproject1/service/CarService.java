@@ -23,19 +23,33 @@ public class CarService {
         log.info("getAllCars");
         return carRepository.findAll();
     }
-    public List<Car>findByModel(String model) {
+
+    public List<Car> getCarsByModel(String model) {
         log.info("getCarsByModel");
         return carRepository.findByModel(model);
     }
-   public List<Car>findByBrand(String brand) {
+
+    public List<Car> findByBrand(String brand) {
         log.info("getCarsByBrand");
         return carRepository.findByBrand(brand);
-   }
-   //public List<Car>findByPrice(double price) {
-  //      log.info("getCarsByPrice");
-  //      return carRepository.findByPrice(price,price);
- //  }
     }
+
+    public List<Car> findByYear(int year) {
+        log.info("getCarsByYear");
+        return carRepository.findByYear(year);
+    }
+
+    public List<Car> findCarsByPriceRange(double minPrice, double maxPrice) {
+        log.info("findCarsByPriceRange");
+        return carRepository.findByPriceBetween(minPrice, maxPrice);
+    }
+
+    public List<Car> getCarsInYearRange(int startYear, int endYear) {
+        return carRepository.findByYearBetween(startYear, endYear);
+
+
+    }
+}
 
 
     //    public Optional<Car> getCarById(Long id) {

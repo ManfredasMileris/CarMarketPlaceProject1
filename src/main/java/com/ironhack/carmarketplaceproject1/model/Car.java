@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -19,9 +21,8 @@ public class Car {
     private int year;
     private double price;
     private CarStatus carstatus;
-    @ManyToOne
-    @JoinColumn(name = "listing_id")
-    private Listing listing;
+    @OneToMany(mappedBy = "car")
+    private List<Listing> listings;
 
        public Car(String model,String brand, int year, double price, CarStatus carstatus) {
         this.model = model;

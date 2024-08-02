@@ -4,6 +4,7 @@ import com.ironhack.carmarketplaceproject1.model.Car;
 import com.ironhack.carmarketplaceproject1.repository.CarRepository;
 import com.ironhack.carmarketplaceproject1.service.CarService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,26 +20,33 @@ public class CarController {
     public List<Car> getAllCars() {
         return carRepository.findAll();
     }
-//    @GetMapping("/{id}")
-//    public Car getCarById(@PathVariable("id") long id) {
-//        return carRepository.findById(id).orElse(null);
-//    }
-    //@GetMapping("/price")
-    //public List<Car> findCarsByPrice(@RequestParam("minPrice") double minPrice, @RequestParam("maxPrice") double maxPrice) {
-   //     return carRepository.findByPriceBetween(minPrice, maxPrice);
-   // }
-    @GetMapping("/model/{model}")
-    public List<Car> findByModel(@PathVariable("model") String model) {
-        return carRepository.findByModel(model);
+    @GetMapping("/{id}")
+    public Car getCarById(@PathVariable("id") long id) {
+        return carRepository.findById(id).orElse(null);
+    }
+     @GetMapping("/model/{model}")
+     public List<Car> getCarsByModel(@PathVariable String model) {
+        return carService.getCarsByModel(model);
     }
     @GetMapping("/brand/{brand}")
-    public List<Car> findByBrand(@PathVariable("brand")String brand) {
-        return carRepository.findByBrand(brand);
+    public List<Car> findByBrand(@PathVariable String brand) {
+        return carService.findByBrand(brand);
     }
-    @GetMapping("/year{year}")
-    public List<Car> findByYear(@PathVariable("year")int year) {
-        return carRepository.findByYear(year);
+    @GetMapping("/year/{year}")
+    public List<Car> findByYear(@PathVariable int year) {
+        return carService.findByYear(year);
     }
+    @GetMapping("/price-range")
+    public List<Car>getCarsInPriceRange(@RequestParam double minPrice, @RequestParam double maxPrice) {
+        return carService.findCarsByPriceRange(minPrice, maxPrice);
+    }
+    @GetMapping("/year-range")
+    public ResponseEntity<List<Car>> getCarsInYearRange(@RequestParam int startYear, @RequestParam int endYear) {
+        List<Car> cars = carService.getCarsInYearRange(startYear, endYear);
+        return ResponseEntity.ok(cars);
+    }
+
+
     @PostMapping("/PostCar/{id}")
     public Car addCar(@PathVariable("id") long user, @RequestBody Car car) {
         return carRepository.save(car);

@@ -37,4 +37,5 @@ public class DataLoader implements CommandLineRunner {
         roleService.addRoleToUser("chris", "ROLE_ADMIN");
         roleService.addRoleToUser("chris", "ROLE_USER");
     }
+
 }

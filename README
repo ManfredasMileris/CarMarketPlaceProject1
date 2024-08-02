@@ -1,0 +1,80 @@
+#This project is a Car Marketplace application that allows users to browse and search for cars based on various criteria such as brand, model, year, and price range.
+Users can view details of individual cars and filter search results to find cars that meet their requirements.
+# Car Marketplace Application
+
+## Description of the Project
+The Car Marketplace Application is a Spring Boot-based web application designed to facilitate the buying, selling, and renting of cars. Users can list cars for sale or rent, browse available cars, and contact sellers. The application aims to provide a seamless and efficient platform for car transactions.
+
+## Class Diagram
+![Class Diagram](C:\Users\Manfredas#\Downloads\carmarketplace.drawio (1).drawio.png)
+##Use Case Diagram
+![Use Case Diagram](C:\Users\Manfredas#\Downloads\carmarketplace.drawio.png)
+
+## Setup
+Follow these steps to set up the project on your local machine:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/ManfredasMileris/carmarketplace
+    ```
+2. **Navigate to the project directory:**
+    ```bash
+    cd car-marketplace
+    ```
+3. **Build the project:**
+    ```bash
+    mvn clean install
+    ```
+4. **Run the application:**
+    ```bash
+    mvn spring-boot:run
+    ```
+5. **Access the application:**
+    - Open Postman and visit `http://localhost:8080`.
+
+## Technologies Used
+- **Spring Boot**: Backend framework
+- **Spring Data JPA**: For database interactions
+- **H2 Database**: In-memory database for development and testing
+- **Maven**: Dependency management and build tool
+
+## Controllers and Routes Structure
+Here is a brief overview of controllers and the associated routes:
+
+### UserController
+- `GET /users`: List all users
+- `GET /users/{id}`: View a specific user
+- `POST /users`: Create a new user
+- `PUT /users/{id}`: Update an existing user
+- `DELETE /users/{id}`: Delete a specific user
+
+### CarController
+- `GET /cars`: List all cars
+- `GET /cars/{id}`: View a specific car
+- `POST /cars`: Add a new car
+- `PUT /cars/{id}`: Update an existing car
+- `DELETE /cars/{id}`: Delete a specific car
+
+### ListingController
+- `GET /listings`: List all car listings
+- `GET /listings/{id}`: View a specific listing
+- `POST /listings`: Create a new car listing
+- `PUT /listings/{id}`: Update an existing listing
+- `DELETE /listings/{id}`: Delete a specific listing
+
+
+## Extra Links
+- **Presentation Slides**: [Project Presentation](https://prezi.com/p/edit/phok-cxcw8cz/)
+
+## Future Work
+- **Enhance Security**: Implement advanced authentication and authorization mechanisms (e.g., JWT tokens).
+- **Payment Integration**: Add support for online payments through services like Stripe or PayPal.
+- **User Reviews and Ratings**: Allow users to leave reviews and ratings for sellers and cars.
+- **Mobile Application**: Develop a mobile version of the application for iOS and Android.
+- **Enhanced Search**: Implement advanced search and filtering capabilities.
+
+## Resources
+- **Spring Boot Documentation**: [Spring Boot](https://spring.io/projects/spring-boot)
+- **H2 Database Documentation**: [H2 Database](http://www.h2database.com/html/main.html)
+- **Maven Documentation**: [Maven](https://maven.apache.org/guides/index.html)
+
+---

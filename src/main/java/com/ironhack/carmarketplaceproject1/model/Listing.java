@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -16,17 +17,26 @@ import java.util.List;
 public class Listing {
     @Id
     private Long id;
-    private LocalDate date;
+    private String location;
+    private String description;
+    //private double price;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
     @Enumerated(EnumType.STRING)
     private Status listingtype;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "listing")
-    private List<Car> cars;
+    @ManyToOne
+    private Car car;
 
-
-
-    public Listing(LocalDate date, Status listingtype) {
-        this.date = date;
+    public Listing(Status listingtype, LocalDateTime modifiedDate, LocalDateTime createdDate, String description, String location, double price) {
         this.listingtype = listingtype;
+        this.modifiedDate = modifiedDate;
+        this.createdDate = createdDate;
+        this.description = description;
+        this.location = location;
+       // this.price = price;
     }
 }
+
+
+
