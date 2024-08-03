@@ -70,7 +70,7 @@ Here is a brief overview of controllers and the associated routes:
 - **Payment Integration**: Add support for online payments through services like Stripe or PayPal.
 - **User Reviews and Ratings**: Allow users to leave reviews and ratings for sellers and cars.
 - **Mobile Application**: Develop a mobile version of the application for iOS and Android.
-- **Enhanced Search**: Implement advanced search and filtering capabilities..
+- **Enhanced Search**: Implement advanced search and filtering capabilities.
 
 ## Resources
 - **Spring Boot Documentation**: [Spring Boot](https://spring.io/projects/spring-boot)
