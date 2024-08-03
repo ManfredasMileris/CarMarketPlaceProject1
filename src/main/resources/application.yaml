@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/marketplace_db
     username: root
-    password: 15647821Aa!*
+    password: manfredas123
 
   jpa:
     hibernate:
