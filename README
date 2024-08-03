@@ -7,7 +7,7 @@ Users can view details of individual cars and filter search results to find cars
 The Car Marketplace Application is a Spring Boot-based web application designed to facilitate the buying, selling, and renting of cars. Users can list cars for sale or rent, browse available cars, and contact sellers. The application aims to provide a seamless and efficient platform for car transactions.
 
 ## Class Diagram
-![Class Diagram](C:\Users\Manfredas#\Downloads\carmarketplace.drawio (1).drawio.png)
+![Class Diagram]
 ##Use Case Diagram
 ![Use Case Diagram](C:\Users\Manfredas#\Downloads\carmarketplace.drawio.png)
 
